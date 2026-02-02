@@ -10,7 +10,13 @@ public class SensorData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String sensorName;
-    private Double value;
+    private Double temperature;
+    private Double vibration;
     private LocalDateTime timestamp;
+
+    @ManyToOne
+    @JoinColumn(name = "machine_id", nullable = false)
+    private Machine machine; // این همان Foreign Key است
 }
